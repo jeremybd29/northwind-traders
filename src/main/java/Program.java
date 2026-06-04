@@ -1,6 +1,5 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.sql.ResultSet;
 
 
 public class Program{
@@ -12,6 +11,16 @@ public class Program{
                     "upupandaway2"
             );
             System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "SELECT ProductName * FROM Products");
+            while(resultSet.next()){
+                System.out.println(resultSet.getString("ProductName"));
+            }
+
+
+
         } catch (SQLException e) {
             System.out.println("Connection failed");
             e.printStackTrace();
