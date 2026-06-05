@@ -14,7 +14,7 @@ public class Program{
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(
-                    "SELECT ProductName * FROM Products");
+                    "SELECT ProductName FROM Products");
             while(resultSet.next()){
                 System.out.println(resultSet.getString("ProductName"));
             }
