@@ -14,12 +14,15 @@ public class Program{
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(
-                    "SELECT ProductName FROM Products");
+                    "SELECT ProductID, ProductName, UnitPrice, UnitsInStock  FROM Products");
             while(resultSet.next()){
-                System.out.println(resultSet.getString("ProductName"));
+                System.out.println(resultSet.getString("ProductID") + " " +
+                        resultSet.getString("ProductName")+ " " +
+                        resultSet.getDouble("UnitPrice") + " " + " Stock:"+
+                        resultSet.getInt("UnitsInStock")
+
+                );
             }
-
-
 
         } catch (SQLException e) {
             System.out.println("Connection failed");
